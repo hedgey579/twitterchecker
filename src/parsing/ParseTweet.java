@@ -17,14 +17,7 @@ public class ParseTweet {
 	}
 
 	public static String getLatestTweet(String user){
-		ConfigurationBuilder cb = new ConfigurationBuilder();
-		cb.setDebugEnabled(true)
-		.setOAuthConsumerKey("1qa6gOuB6kDIj1c56LZRnIddb")
-		.setOAuthConsumerSecret("DYDa84kWwDOBbpHrmOnzZErWrHn4AdfK9hI9oxnRFGPdpm6Fp1")
-		.setOAuthAccessToken("860231890879397888-QeSNd0gSChRBkaiLoGyXJOkhhlBFu3w")
-		.setOAuthAccessTokenSecret("nG47Jhoj014TJ3WCThuhHLMkaxLd1b2CF0mHXQdaHD7Wk");
-		TwitterFactory tf = new TwitterFactory(cb.build());
-		Twitter twitter = tf.getInstance();
+		Twitter twitter = TwitterFactory.getSingleton();
 		Paging paging = new Paging(1,1);
 		List<Status> tweets = new ArrayList<Status>();
 		try {
@@ -33,5 +26,26 @@ public class ParseTweet {
 			e.printStackTrace();
 		}
 		return tweets.get(0).getText();
+	}
+	public static List<String> getTweetWords(String tweet){
+		List<String> words = new ArrayList<String>();
+		int currentPos = 0;
+		for(int i = 0; i < tweet.length(); i++){
+			if(tweet.substring(i, i+1).equals(" ")){
+				if(currentPos == 0){
+					words.add(tweet.substring(currentPos,i));
+					currentPos = i;
+				}
+				else{
+					words.add(tweet.substring(currentPos+1,i));
+					currentPos = i;
+				}
+			}
+			if(i == tweet.length()-1){
+				words.add(tweet.substring(currentPos+1,i+1));
+			}
+		}
+		System.out.println(words.get(2));
+		return words;
 	}
 }

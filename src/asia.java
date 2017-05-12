@@ -9,6 +9,6 @@ public class asia {
 	public static void main(String[] args) throws TwitterException
 	{
 		Twitter twitter = TwitterFactory.getSingleton();
-		twitter.updateStatus("Testing properties file");
+		ParseTweet.getTweetWords("Test one two");
 	}
 }
