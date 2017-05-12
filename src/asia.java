@@ -1,4 +1,5 @@
 import parsing.ParseTweet;
+import bot.TwitterChecker;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -8,7 +9,7 @@ public class asia {
 
 	public static void main(String[] args) throws TwitterException
 	{
-		Twitter twitter = TwitterFactory.getSingleton();
-		ParseTweet.getTweetWords("Test one two");
+		TwitterChecker bot = new TwitterChecker();
+		System.out.println(bot.correctTweet("spellingsoldier"));
 	}
 }

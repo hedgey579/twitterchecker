@@ -7,9 +7,9 @@ import parsing.ParseTweet;
 
 public class Finder{
 	
-	public int max = Integer.MAX_VALUE;
-	public String rec = "";
-	private List<String> words = ParseDictionary.parseDictionary();
+	public static int max = Integer.MAX_VALUE;
+	public static String rec = "";
+	public static List<String> words = ParseDictionary.parseDictionary();
 	
 	public static int distance(String a, String b) {
         a = a.toLowerCase();
@@ -31,7 +31,7 @@ public class Finder{
         return costs[b.length()];
     }
 	
-	public String wordRecommend(String word){
+	public static String wordRecommend(String word){
 		
 		for(int p = 0; p < words.size(); p++){
 			if(distance(word, words.get(p)) < max){
