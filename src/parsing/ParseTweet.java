@@ -15,7 +15,11 @@ public class ParseTweet {
 	public ParseTweet() {
 		
 	}
-
+	/**
+	 * Gets the latest tweet from a user as specified by the user argument.
+	 * @param user The user to retrieve the tweet from
+	 * @return The latest tweet from the user specified in the user argument
+	 */
 	public static String getLatestTweet(String user){
 		Twitter twitter = TwitterFactory.getSingleton();
 		Paging paging = new Paging(1,1);
@@ -27,6 +31,11 @@ public class ParseTweet {
 		}
 		return tweets.get(0).getText();
 	}
+	/**
+	 * A method that takes a tweet and returns an array of its individual words for spellchecking.
+	 * @param tweet The tweet to parse
+	 * @return The list of words in the tweet
+	 */
 	public static List<String> getTweetWords(String tweet){
 		List<String> words = new ArrayList<String>();
 		int currentPos = 0;
@@ -47,5 +56,15 @@ public class ParseTweet {
 		}
 		System.out.println(words.get(2));
 		return words;
+	}
+	/**
+	 * A method that finds a mention in a tweet or returns null if no such mention exists.
+	 * @param tweet The tweet to parse
+	 * @return The mention in the tweet
+	 */
+	public static String getMention(String tweet){
+		if(tweet.indexOf("@") > -1)
+			return tweet.substring(tweet.indexOf("@"),tweet.indexOf(" ",tweet.indexOf("@")));
+		return null;
 	}
 }
