@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ParseDictionary {
-		public static void main(String[] args){
+		public static List<String> parseDictionary(){
 			Scanner s = null;
 			try {
 				s = new Scanner(new File("src/files/words.txt"));
@@ -18,5 +18,6 @@ public class ParseDictionary {
 			while(s.hasNext())
 					words.add(s.next());
 			s.close();
+			return words;
 	}
 }
