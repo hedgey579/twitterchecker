@@ -32,7 +32,6 @@ public class Finder{
     }
 	
 	public static String wordRecommend(String word){
-		
 		for(int p = 0; p < words.size(); p++){
 			if(distance(word, words.get(p)) < max){
 				max = distance(word, words.get(p));
