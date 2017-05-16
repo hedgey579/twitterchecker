@@ -8,7 +8,6 @@ import java.util.List;
 
 import config.ParseDictionary;
 import parsing.ParseTweet;
-
 import searching.Finder;
 
 public class TwitterChecker {
@@ -33,16 +32,10 @@ public class TwitterChecker {
 		}
 	}
 	public String correctTweet(String user){
-		List<String> words = ParseTweet.getTweetWords(ParseTweet.getLatestTweet(user));
+		List<String> word = ParseTweet.getTweetWords(ParseTweet.getLatestTweet(user));
 		String correctedTweet = "";
-		for(int i = 0; i < words.size(); i++){
-			if(!(Finder.wordRecommend(words.get(i)).equals(words.get(i)))){
-				words.add(i, Finder.wordRecommend(words.get(i)));
-				words.remove(i+1);
-			}
-		}
-		for(int i = 0; i < words.size(); i++){
-			correctedTweet+= words.get(i);
+		for(int k = 0; k < word.size(); k++){
+			correctedTweet = correctedTweet + Finder.wordRecommend(word.get(k)) + " ";
 		}
 		return correctedTweet;
 	}

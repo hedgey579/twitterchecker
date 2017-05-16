@@ -11,6 +11,7 @@ public class asia {
 	public static void main(String[] args) throws TwitterException
 	{
 		TwitterChecker bot = new TwitterChecker();
-		System.out.println(Finder.wordRecommend("hecker"));
+		System.out.println(Finder.wordRecommend("victry"));
+		System.out.println(bot.correctTweet("spellingsoldier"));
 	}
 }
