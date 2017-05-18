@@ -10,8 +10,10 @@ public class asia {
 
 	public static void main(String[] args) throws TwitterException
 	{
+		Finder f = new Finder();
 		TwitterChecker bot = new TwitterChecker();
-		System.out.println(Finder.wordRecommend("victry"));
+		System.out.println(f.wordRecommend("victry"));
 		System.out.println(bot.correctTweet("spellingsoldier"));
 	}
 }
+

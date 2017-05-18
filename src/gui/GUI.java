@@ -7,8 +7,7 @@ public class GUI {
 		
 		int num1 = Integer.parseInt(fn);
 		int num2 = Integer.parseInt(fn);
-		int sum = num1 + num2;
-		
+		int sum = num1 + num2;	
 		JOptionPane.showMessageDialog(null, "The answer is" + sum, "the title", JOptionPane.PLAIN_MESSAGE);
 		
 		}

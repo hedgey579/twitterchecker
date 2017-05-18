@@ -12,9 +12,10 @@ import searching.Finder;
 
 public class TwitterChecker {
 
-	private Twitter twitter = TwitterFactory.getSingleton();
+	private Twitter twitter;
+	Finder f = new Finder();
 	public TwitterChecker() {
-		
+		twitter = TwitterFactory.getSingleton();
 	}
 	
 	public void follow(String user){
@@ -34,9 +35,10 @@ public class TwitterChecker {
 	public String correctTweet(String user){
 		List<String> word = ParseTweet.getTweetWords(ParseTweet.getLatestTweet(user));
 		String correctedTweet = "";
-		for(int k = 0; k < word.size(); k++){
-			correctedTweet = correctedTweet + Finder.wordRecommend(word.get(k)) + " ";
+		for(int i = 0; i < word.size(); i++){
+			correctedTweet += f.wordRecommend(word.get(i)) + " ";
 		}
 		return correctedTweet;
 	}
+	
 }
