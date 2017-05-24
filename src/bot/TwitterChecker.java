@@ -40,5 +40,9 @@ public class TwitterChecker {
 		}
 		return correctedTweet;
 	}
-	
+	public void run(){
+		while(0 < 1){
+			
+		}
+	}
 }
