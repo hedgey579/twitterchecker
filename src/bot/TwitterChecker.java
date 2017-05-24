@@ -9,6 +9,7 @@ import java.util.List;
 import config.ParseDictionary;
 import parsing.ParseTweet;
 import searching.Finder;
+import gui.AppWindow;
 
 public class TwitterChecker {
 
@@ -42,7 +43,7 @@ public class TwitterChecker {
 	}
 	public void run(){
 		while(0 < 1){
-			
+			AppWindow.main(null);
 		}
 	}
 }
