@@ -53,6 +53,7 @@ public class AppWindow {
 		
 		JButton btnTerminateProgramExecution = new JButton("TERMINATE PROGRAM EXECUTION");
 		scrollPane.setColumnHeaderView(btnTerminateProgramExecution);
+		
 	}
 
 }
