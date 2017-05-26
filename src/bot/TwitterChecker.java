@@ -33,8 +33,8 @@ public class TwitterChecker {
 			e.printStackTrace();
 		}
 	}
-	public String correctTweet(String user){
-		List<String> word = ParseTweet.getTweetWords(ParseTweet.getLatestTweet(user));
+	public String correctTweet(String user,int num){
+		List<String> word = ParseTweet.getTweetWords(ParseTweet.getTweet(user,num));
 		String correctedTweet = "";
 		for(int i = 0; i < word.size(); i++){
 			correctedTweet += f.wordRecommend(word.get(i)) + " ";
@@ -42,7 +42,8 @@ public class TwitterChecker {
 		return correctedTweet;
 	}
 	public void run(){
-		while(0 < 1){
+		boolean halted = false;
+		while(!halted){
 			AppWindow.main(null);
 		}
 	}

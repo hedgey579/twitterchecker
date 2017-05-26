@@ -31,6 +31,17 @@ public class ParseTweet {
 		}
 		return tweets.get(0).getText();
 	}
+	public static String getTweet(String user, int num){
+		Twitter twitter = TwitterFactory.getSingleton();
+		Paging paging = new Paging(1,num);
+		List<Status> tweets = new ArrayList<Status>();
+		try {
+			tweets = twitter.getUserTimeline(user,paging);
+		} catch (TwitterException e) {
+			e.printStackTrace();
+		}
+		return tweets.get(0).getText();
+	}
 	/**
 	 * A method that takes a tweet and returns an array of its individual words for spellchecking.
 	 * @param tweet The tweet to parse
