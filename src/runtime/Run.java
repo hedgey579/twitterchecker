@@ -70,7 +70,13 @@ public class Run {
 			choice = s.next();
 			if(choice.equalsIgnoreCase("y")){
 				System.out.println("Sending tweet");
-				c.sendTweet(corrected);
+				if(corrected.length() <= 140){
+					c.sendTweet("@" + in + corrected);
+				}
+				else{
+					c.sendTweet("(1/2)" + corrected.substring(0, 136));
+					c.sendTweet("(2/2)" + corrected.substring(135,corrected.length() + 1));
+				}
 				System.out.println("Process completed.");
 			}
 			else if(choice.equalsIgnoreCase("n")){
