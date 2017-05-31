@@ -70,8 +70,8 @@ public class Run {
 			choice = s.next();
 			if(choice.equalsIgnoreCase("y")){
 				System.out.println("Sending tweet");
-				if(corrected.length() <= 140){
-					c.sendTweet("@" + in + corrected);
+				if(corrected.length() + 3 + in.length() <= 140){
+					c.sendTweet(".@" + in + " " + corrected);
 				}
 				else{
 					c.sendTweet("(1/2)" + corrected.substring(0, 136));
