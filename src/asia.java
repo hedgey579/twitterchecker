@@ -12,7 +12,6 @@ public class asia {
 	{
 		Finder f = new Finder();
 		TwitterChecker bot = new TwitterChecker();
-		System.out.println(bot.correctTweet("realdonaldtrump",3));
+		System.out.println(f.wordRecommend("bak"));
 	}
 }
-
